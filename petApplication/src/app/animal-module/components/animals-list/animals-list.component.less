@@ -1,0 +1,37 @@
+@fontSize: 20px;
+@mainColor: rgb(101, 82, 206);
+@hoverColor: rgb(79, 62, 172);
+@mainRadius: 4px;
+
+.toggle-btn {
+    font-size: @fontSize;
+    background-color: @mainColor;
+    border-radius: @mainRadius;
+    padding: 4px;
+    border: none;
+    height: 3em;
+    color: #eee;
+    margin-bottom: 0.5em;
+    &:hover {
+        background-color: @hoverColor;
+    }
+}
+
+.animals {
+    list-style-type: none;
+    padding: 0;
+    width: 350px;
+    margin: 0 auto;
+    font-size: @fontSize;
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+    background: none;
+    box-shadow: none;
+}
+
+.mat-typography h1 {
+    margin-top: 1rem;
+    font-size: 25px;
+}

@@ -1,0 +1,113 @@
+<div *ngIf="animalForm" class="title">
+    <div class="details">
+        <h2>{{ currentAnimal.name }}</h2>
+        <h2>ID:{{ currentAnimal.id }}</h2>
+        <form
+            class="form"
+            [formGroup]="animalForm"
+            (ngSubmit)="onSubmit()"
+            *ngIf="animalForm"
+        >
+            <div class="property">
+                <p>Имя:</p>
+                <input
+                    id="animal-name"
+                    type="text"
+                    formControlName="name"
+                    required
+                />
+                <div
+                    *ngIf="animalForm.controls['name'].invalid"
+                    class="error-message"
+                >
+                    <div
+                        *ngIf="animalForm.controls['name'].errors?.['required']"
+                    >
+                        Введите имя.
+                    </div>
+                    <div
+                        *ngIf="animalForm.controls['name'].errors?.['minlength']"
+                    >
+                        Минимальная длина 3 символа.
+                    </div>
+                    <div
+                        *ngIf="animalForm.controls['name'].errors?.['maxlength']"
+                    >
+                        Максимальная длина 10 символов.
+                    </div>
+                </div>
+            </div>
+
+            <div class="property">
+                <p>Вид:</p>
+                <input
+                    id="animal-type"
+                    type="text"
+                    formControlName="type"
+                    required
+                />
+            </div>
+
+            <div>
+                <p>Цвет:</p>
+                <input
+                    id="animal-color"
+                    type="text"
+                    formControlName="color"
+                    required
+                />
+                <div
+                    *ngIf="animalForm.controls['color'].invalid"
+                    class="error-message"
+                >
+                    <div
+                        *ngIf="animalForm.controls['color'].errors?.['required']"
+                    >
+                        Введите цвет.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>Возраcт:</p>
+                <input
+                    id="animal-age"
+                    type="text"
+                    formControlName="age"
+                    required
+                />
+                <div
+                    *ngIf="animalForm.controls['age'].invalid"
+                    class="error-message"
+                >
+                    <div
+                        *ngIf="animalForm.controls['age'].errors?.['required']"
+                    >
+                        Введите возраст.
+                    </div>
+                    <div
+                        *ngIf="animalForm.controls['age'].errors?.['minlength']"
+                    >
+                        Минимальная длина 1 символ.
+                    </div>
+                    <div
+                        *ngIf="animalForm.controls['age'].errors?.['maxlength']"
+                    >
+                        Максимальная длина 2 символа.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>Пол:</p>
+                <input
+                    id="animal-Gender"
+                    type="text"
+                    formControlName="gender"
+                />
+            </div>
+            <div class="button-wrapper">
+                <button id="change-button">Сохранить</button>
+            </div>
+        </form>
+    </div>
+    <button id="back" class="back-btn" (click)="goBack()">Назад</button>
+</div>

@@ -1,0 +1,78 @@
+@fontSize: 20px;
+@mainColor: rgb(101, 82, 206);
+@hoverColor: rgb(79, 62, 172);
+@mainRadius: 4px;
+
+.details {
+    font-size: 20px;
+    background-color: rgb(86, 68, 189);
+    margin: 20px auto;
+    width: 300px;
+    padding: 15px;
+    border-radius: @mainRadius;
+    color: #eee;
+    text-align: start;
+
+    .header-wrapper {
+        padding-left: 25px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    h2 {
+        padding: 0;
+        margin: 0 0 5px 0;
+        text-align: center;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    input {
+        width: 97%;
+        height: 25px;
+        font-size: 15px;
+    }
+    .form {
+        padding-bottom: 10px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .error-message {
+            margin-top: 0.3em;
+            color: rgb(255, 143, 143);
+            font-size: 18px;
+        }
+
+        .button-wrapper {
+            text-align: center;
+        }
+
+        button {
+            background-color: #eee;
+            height: 2.5rem;
+            border-radius: @mainRadius;
+            margin-right: 0.5rem;
+            font-size: 20px;
+        }
+
+        select {
+            font-size: 18px;
+            padding: 4px;
+        }
+    }
+}
+
+.back-btn {
+    font-size: @fontSize;
+
+    border-radius: @mainRadius;
+    padding: 0px;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(0, 0, 0);
+}

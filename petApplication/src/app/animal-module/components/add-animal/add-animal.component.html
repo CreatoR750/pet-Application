@@ -1,0 +1,109 @@
+<div mat-dialog-content class="details">
+    <div class="header-wrapper">
+        <h2>Добавление питомца:</h2>
+        <button class="back-btn" (click)="goBack()">X</button>
+    </div>
+    <form
+        (ngSubmit)="onSubmit()"
+        class="form"
+        #animalForm="ngForm"
+        [class.cross-validation-error]="animalForm.errors?.['identityRevealed'] && (animalForm.touched || animalForm.dirty)"
+    >
+        <div class="property">
+            <p>Имя:</p>
+            <input
+                class="form-control"
+                id="name"
+                name="name"
+                type="text"
+                required
+                minlength="3"
+                required
+                maxlength="10"
+                [(ngModel)]="animal.name"
+                #name="ngModel"
+                required
+            />
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+                <div *ngIf="name.errors?.['required']">Введите имя.</div>
+                <div *ngIf="name.errors?.['minlength']">Минимальная длина 3 символа.</div>
+                <div *ngIf="name.errors?.['maxlength']">Максимальная длина 10 символов.</div>
+            </div>
+        </div>
+
+        <div class="property">
+            <p>Вид:</p>
+            <input
+                class="form-control"
+                id="type"
+                name="type"
+                type="text"
+                required
+                minlength="3"
+                required
+                maxlength="10"
+                [(ngModel)]="animal.type"
+                #type="ngModel"
+                required
+            />
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="error-message">
+                <div *ngIf="type.errors?.['required']">Введите вид животного.</div>
+                <div *ngIf="type.errors?.['minlength']">Минимальная длина 3 символа.</div>
+                <div *ngIf="type.errors?.['maxlength']">Максимальная длина 10 символов.</div>
+            </div>
+        </div>
+
+        <div>
+            <p>Цвет:</p>
+            <input
+                class="form-control"
+                id="color"
+                name="color"
+                type="text"
+                required
+                minlength="3"
+                required
+                maxlength="10"
+                [(ngModel)]="animal.color"
+                #color="ngModel"
+                required
+            />
+            <div *ngIf="color.invalid && (color.dirty || color.touched)" class="error-message">
+                <div *ngIf="color.errors?.['required']">Введите цвет.</div>
+                <div *ngIf="color.errors?.['minlength']">Минимальная длина 3 символа.</div>
+                <div *ngIf="color.errors?.['maxlength']">Максимальная длина 10 символов.</div>
+            </div>
+        </div>
+        <div>
+            <p>Возраcт:</p>
+            <input
+                class="form-control"
+                id="age"
+                name="age"
+                type="text"
+                required
+                minlength="1"
+                required
+                maxlength="2"
+                [(ngModel)]="animal.age"
+                #age="ngModel"
+                required
+            />
+            <div *ngIf="age.invalid && (age.dirty || age.touched)" class="error-message">
+                <div *ngIf="age.errors?.['required']">Введите возраст.</div>
+                <div *ngIf="age.errors?.['minlength']">Минимальная длина 1 символ.</div>
+                <div *ngIf="age.errors?.['maxlength']">Максимальная длина 2 символа.</div>
+            </div>
+        </div>
+        <div>
+            <p>Пол:</p>
+            <select id="gender" name="gender" required [(ngModel)]="animal.gender" #gender="ngModel">
+                <option *ngFor="let p of genders" [value]="p">{{ p }}</option>
+            </select>
+        </div>
+        <div class="button-wrapper">
+            <button mat-button type="submit" [disabled]="animalForm.invalid">Сохранить</button>
+            <button type="button" (click)="animalForm.resetForm({})">Сброс</button>
+        </div>
+    </form>
+</div>
